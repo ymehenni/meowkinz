@@ -34,7 +34,8 @@ app.post("/login", (req, res) => {
       session: sessionId
     })
   );
-  console.log("test")
+  let time = Date.now();
+  userData[parsedBody.user].lastLogin = time;
 });
 
 app.post("/register", (req, res) => {

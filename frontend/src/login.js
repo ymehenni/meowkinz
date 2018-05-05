@@ -10,6 +10,7 @@ class Login extends Component {
       passInput: "",
       userRegisterInput: "",
       passRegisterInput: "",
+      passRegisterInput2: "",
       error: ""
     };
   }
@@ -45,11 +46,20 @@ class Login extends Component {
     let value = event.target.value;
     this.setState({ passRegisterInput: value });
   };
+  handlePassRegisterChange2 = event => {
+    let value = event.target.value;
+    this.setState({ passRegisterInput2: value });
+  };
   handleRegisterSubmit = event => {
     event.preventDefault();
     let username = this.state.userRegisterInput;
     let password = this.state.passRegisterInput;
-    this.setState({ userRegisterInput: "", passRegisterInput: "" });
+    let password2 = this.state.passRegisterInput2;
+    if (password !== password2){
+      this.setState({error: "Passwords Do Not Match!"})
+      return
+    }
+    this.setState({ userRegisterInput: "", passRegisterInput: "", passRegisterInput2: "" });
     fetch("/register", {
       method: "POST",
       body: JSON.stringify({ user: username, pass: password })
@@ -99,6 +109,13 @@ class Login extends Component {
                   type="password"
                   value={this.state.passRegisterInput}
                   onChange={this.handlePassRegisterChange}
+                />
+                <input
+                  style={{ width: "100%", marginTop: "5px" }}
+                  placeholder="Verify Password"
+                  type="password"
+                  value={this.state.passRegisterInput2}
+                  onChange={this.handlePassRegisterChange2}
                 />
                 <br />
                 <input

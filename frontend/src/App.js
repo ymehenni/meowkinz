@@ -15,6 +15,9 @@ class App extends Component {
       sessionId: 0,
     };
   }
+  componentDidMount = () => {
+    document.title = "MeowKinz Chat";
+  }
   setUsername = (userInput) => {
     this.setState({user: userInput})
   }
