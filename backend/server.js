@@ -34,6 +34,7 @@ app.post("/login", (req, res) => {
       session: sessionId
     })
   );
+  console.log("test")
 });
 
 app.post("/register", (req, res) => {

@@ -12,6 +12,7 @@ class Chat extends Component {
       userData: {}
     };
   }
+  componentWillUnmount = () => {}
   componentWillReceiveProps = props => {
     this.setState({ user: props.userName, sessionId: props.session });
   };
@@ -40,7 +41,7 @@ class Chat extends Component {
       loadItems();
       loadActiveUsers();
     };
-    setInterval(loadAll, 1000);
+   setInterval(loadAll, 1000);
   };
   handleChatChange = event => {
     let value = event.target.value;
@@ -73,11 +74,11 @@ class Chat extends Component {
       );
     });
   };
-  showActive = obj => {
+  showActive = (obj) => { // eslint-disable-next-line 
     return Object.keys(obj).map((k, i) => {
       if (obj[k].lastLogin > Date.now() - 300000) {
         return (
-          <li
+          <li 
             className="badge badge-success"
             key={i}
             style={{ listStyleType: "none", width: "100%" }}
@@ -96,7 +97,7 @@ class Chat extends Component {
           id="chatNav"
           className="navbar navbar-expand-lg navbar-dark bg-primary"
         >
-              <img src="/logo.png"></img>
+              <img src="/logo.png" alt="kitty logo"></img>
         <h3 id='logo' >
             MeowKinz{" "}
           </h3>

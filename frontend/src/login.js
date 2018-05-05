@@ -72,7 +72,7 @@ class Login extends Component {
           id="chatNav"
           className="navbar navbar-expand-lg navbar-dark bg-primary"
         >
-          <img src="/logo.png" />
+          <img src="/logo.png" alt="kitty logo"/>
           <h3 id="logo">MeowKinz </h3>
         </nav>
 
